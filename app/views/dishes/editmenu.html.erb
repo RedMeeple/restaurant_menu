@@ -2,7 +2,6 @@
 
 <h1>Listing Dishes</h1>
 
-
 <% @courses.each do |course| %>
   <div>
     <table>
@@ -11,9 +10,13 @@
           <th colspan="3"><%= course.name %></th>
         </tr>
         <tr>
+          <th><%= link_to 'New Dish', new_dish_path %></th>
+        </tr>
+        <tr>
           <th>Name</th>
           <th>Price</th>
           <th>Description</th>
+          <th colspan="3"></th>
         </tr>
       </thead>
 
@@ -21,7 +24,7 @@
         <% @course_dishes = @dishes.select {|dish| dish.course_id == course.id} %>
         <% @course_dishes.each do |dish| %>
           <tr>
-            <td><%= dish.name %></td>
+            <td><%= link_to dish.name, dish %></td>
             <td><%= dish.price %></td>
             <td><%= dish.description %></td>
           </tr>
@@ -31,5 +34,3 @@
   </div>
   <br>
 <% end %>
-
-<%= link_to 'Edit Menu', editmenu_dishes_path %>

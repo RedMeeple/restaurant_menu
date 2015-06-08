@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :dishes
+  resources :dishes do
+    collection do
+      get 'editmenu'
+    end
+  end
 
   root 'dishes#index'
   # The priority is based upon order of creation: first created -> highest priority.

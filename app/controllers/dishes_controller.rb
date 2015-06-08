@@ -5,6 +5,7 @@ class DishesController < ApplicationController
   # GET /dishes.json
   def index
     @dishes = Dish.all
+    @courses = Course.all
   end
 
   # GET /dishes/1
@@ -21,8 +22,9 @@ class DishesController < ApplicationController
   def edit
   end
 
-  def edit_menu
-
+  def editmenu
+    @dishes = Dish.all
+    @courses = Course.all
   end
   # POST /dishes
   # POST /dishes.json
