@@ -10,7 +10,7 @@
           <th colspan="3"><%= course.name %></th>
         </tr>
         <tr>
-          <th><%= link_to 'New Dish', new_dish_path %></th>
+          <th><%= link_to "New #{course.name.chop}", new_dish_path %></th>
         </tr>
         <tr>
           <th>Name</th>
