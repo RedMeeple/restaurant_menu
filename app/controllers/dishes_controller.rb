@@ -17,6 +17,7 @@ class DishesController < ApplicationController
   # GET /dishes/new
   def new
     @dish = Dish.new
+    @course = params[:course_id]
   end
 
   # GET /dishes/1/edit
@@ -31,7 +32,7 @@ class DishesController < ApplicationController
   # POST /dishes.json
   def create
     @dish = Dish.new(dish_params)
-
+    @course = params[:course_id]
     respond_to do |format|
       if @dish.save
         format.html { redirect_to @dish, notice: 'Dish was successfully created.' }

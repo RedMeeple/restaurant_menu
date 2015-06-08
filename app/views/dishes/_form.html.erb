@@ -24,8 +24,7 @@
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.label :course_id %><br>
-    <%= f.number_field :course_id %>
+    <%= f.hidden_field :course_id, :value => @course %>
   </div>
   <div class="actions">
     <%= f.submit %>
