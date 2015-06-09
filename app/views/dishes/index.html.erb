@@ -8,7 +8,7 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th colspan="3"><h2><span class="title"><%= course.name %><%= image_tag image_url('appetizers.jpg'), class: "img" %></span></h2></th>
+            <th colspan="3"><h2><span class="title"><%= course.name %><%= image_tag image_url("#{course.name.downcase}.jpg"), class: "img" %></span></h2></th>
           </tr>
           <tr>
             <th><h4><span class="label label-success">Name</span></h4></th>
