@@ -1,35 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Dishes</h1>
+<h1>Restaurant Name</h1>
 
-
-<% @courses.each do |course| %>
-  <div>
-    <table>
-      <thead>
-        <tr>
-          <th colspan="3"><%= course.name %></th>
-        </tr>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @course_dishes = @dishes.select {|dish| dish.course_id == course.id} %>
-        <% @course_dishes.each do |dish| %>
+<div class="container">
+  <% @courses.each do |course| %>
+    <div class="col-md-4">
+      <table class="table table-striped">
+        <thead>
           <tr>
-            <td><%= dish.name %></td>
-            <td><%= dish.price %></td>
-            <td><%= dish.description %></td>
+            <th colspan="3"><h2><span class="title"><%= course.name %><%= image_tag image_url('appetizers.jpg'), class: "img" %></span></h2></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-  <br>
-<% end %>
+          <tr>
+            <th><h4><span class="label label-success">Name</span></h4></th>
+            <th><h4><span class="label label-success">Description</span></h4></th>
+            <th><h4><span class="label label-success">Price</span></h4></th>
+          </tr>
+        </thead>
 
-<%= link_to 'Edit Menu', editmenu_dishes_path %>
+        <tbody>
+          <% @course_dishes = @dishes.select {|dish| dish.course_id == course.id} %>
+          <% @course_dishes.each do |dish| %>
+            <tr>
+              <td><%= dish.name %></td>
+              <td><%= dish.description %></td>
+              <td><%= "$#{dish.price}" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>
+
+<button class="btn">
+  <%= link_to 'Edit Menu', editmenu_dishes_path %>
+</button>
